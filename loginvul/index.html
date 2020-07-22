@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!--Este formulario es el que se debe de editar-->
+    <div class="login">
+        <h1>Log In</h1>
+        <form id="datosLogin" method="post" action="login.php">
+            <label for="user">
+                <i class="fas fa-user"></i>
+            </label>
+            <input type="text" name="user" placeholder="Username" id="user">
+            <label for="password">
+                <i class="fas fa-lock"></i>
+            </label>
+            <input type="text" name="password"  placeholder="Password" id="password">
+            
+            <input type="submit" value="Login">
+            <br/>
+            <div id="result" style="    width: 100%;
+            background-color: currentColor">
+                    
+            </div>
+        </form>
+    </div>
+
+    
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+<script>
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    if (urlParams.has('error')){
+        document.getElementById('result').innerHTML += "<div class='alert alert-danger col-md-4 offset-md-4 mt-4'>User or Password is Incorrect</div>";
+    } else if (urlParams.has('success')){
+        document.getElementById('result').innerHTML += "<div class='alert alert-success col-md-4 offset-md-4 mt-4'>Login Succes</div>";
+    }
+</script>
+</html>
